@@ -1,32 +1,141 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Lena",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.lena",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.lena",
-			"begin": "\"",
-			"end": "\"",
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Lena",
+    "patterns": [
+        {
+            "name": "comment.line.lena",
+            "match": ";.*$"
+        },
+        {
+            "name": "comment.block.documentation.lena",
+            "begin": "/\\*",
+			"end": "\\*/",
 			"patterns": [
-				{
-					"name": "constant.character.escape.lena",
-					"match": "\\\\."
-				}
+				{ "include": "#comment.line.lena" }
 			]
-		}
-	},
-	"scopeName": "source.lena"
+        },        
+		{
+            "name": "support.macros.lena",
+            "match": "\\btimes\\b"
+        },
+        {
+            "name": "keyword.flow.lena",
+            "match": "\\b(if|else|elif|default|repeat|as|with|try|except|while|for)\\b"
+        },
+		{
+            "name": "support.thread.lena",
+            "match": "\\b(cout|cin)\\b"
+        },
+        {
+            "name": "operator.assignment.lena",
+            "match": "="
+        },
+        {
+            "name": "operator.arithmetic.lena",
+            "match": "[+\\-*/%]"
+        },
+        {
+            "name": "operator.comparison.lena",
+            "match": "(==|>|<|>=|<=)"
+        },
+        {
+            "name": "operator.binary.lena",
+            "match": "(!|&|\\||\\^|<<|>>)"
+        },
+        {
+            "name": "operator.consequence.lena",
+            "match": "(->|<-)"
+        },
+        {
+            "name": "operator.logical.lena",
+            "match": "\\b(not|and|or|xor)\\b"
+        },
+        {
+            "name": "support.type.lena",
+            "match": "\\b(i8|u8|i16|u16|i32|u32|i64|u64|f32|f64|bool)\\b"
+        },      
+        {
+            "name": "string.quoted.double",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                { "match": "\\\\." },
+                { "match": "\\$\\w+" }
+            ]
+        },
+        {
+            "name": "string.quoted.single",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                { "match": "\\\\." },
+                { "match": "\\$\\w+" }
+            ]
+        },
+        {
+            "name": "bracket.array",
+            "match": "\\[|\\]"
+        },
+        {
+            "name": "bracket.expression",
+            "match": "\\(|\\)"
+        },
+        {
+            "name": "bracket.flow",
+            "match": "\\{|\\}"
+        },
+        {
+            "name": "constant.numeric.hex",
+            "match": "0x[0-9A-Fa-f]+\\b"
+        },
+        {
+            "name": "constant.numeric.binary",
+            "match": "0b[01]+\\b"
+        },
+        {
+            "name": "constant.numeric.octal",
+            "match": "0o[0-7]+\\b"
+        },
+        {
+            "name": "constant.numeric.decimal",
+            "match": "\\b\\d+\\b"
+        },
+        {
+            "name": "entity.name.function.lena",
+            "match": "\\b[a-zA-Z_]\\w*\\b(?=\\s*\\()"
+        },
+        {
+            "name": "variable.other.declaration.lena",
+            "match": "\\b([a-zA-Z_][\\w]*)(\\s*:\\s*([a-zA-Z_][\\w]*))?\\s*=",
+            "captures": {
+                "1": {
+                    "name": "variable.other.lena"
+                },
+                "3": {
+                    "name": "support.type.lena"
+                }
+            }
+        }
+        
+    ],
+    "repository": {
+        "comment.line.lena": {
+            "name": "comment.line.lena",
+            "match": ";.*$"
+        },
+        "string.quoted": {
+            "patterns": [
+                { "include": "#string.quoted.double" },
+                { "include": "#string.quoted.single" }
+            ]
+        },
+        "bracket": {
+            "patterns": [
+                { "include": "#bracket.array" },
+                { "include": "#bracket.expression" },
+                { "include": "#bracket.flow" }
+            ]
+        }
+    },
+    "scopeName": "source.lena"
 }
