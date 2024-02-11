@@ -1,0 +1,25 @@
+{
+  "name": "lena-lang",
+  "displayName": "Lena programming language",
+  "description": "Basic grammar highlighting for the Lena programming language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lena",
+      "aliases": ["Lena", "lena"],
+      "extensions": [".le"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lena",
+      "scopeName": "source.lena",
+      "path": "./syntaxes/lena.tmLanguage.json"
+    }]
+  }
+}
