@@ -115,6 +115,10 @@
                     "name": "support.type.lena"
                 }
             }
+        },
+        {
+            "name": "variable.other.lena",
+            "match": "\\b[a-zA-Z_][\\w]*\\b"
         }
         
     ],
