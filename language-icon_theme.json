@@ -1,0 +1,11 @@
+{
+    "iconDefinitions": {
+        "lenaIcon": {
+            "iconPath": "./images/icon.png"
+        }
+    },
+        "fileExtensions": {
+        "le": "lenaIcon"
+    }
+}
+  

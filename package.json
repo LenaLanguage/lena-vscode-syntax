@@ -1,7 +1,9 @@
 {
-  "name": "lena-lang",
+  "name": "lena",
   "displayName": "Lena programming language",
   "description": "Basic grammar highlighting for the Lena programming language.",
+  "publisher": "robotsvision",
+  "icon": "images/icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
@@ -10,6 +12,13 @@
     "Programming Languages"
   ],
   "contributes": {
+    "iconThemes": [
+      {
+        "id": "lenaIcons",
+        "label": "Lena Icons",
+        "path": "language-icon_theme.json"
+      }
+    ],
     "languages": [{
       "id": "lena",
       "aliases": ["Lena", "lena"],

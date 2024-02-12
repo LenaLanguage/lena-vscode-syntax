@@ -20,7 +20,7 @@
         },
         {
             "name": "keyword.flow.lena",
-            "match": "\\b(if|else|elif|default|repeat|as|with|try|except|while|for)\\b"
+            "match": "\\b(if|else|elif|default|operator|repeat|as|with|try|except|while|for)\\b"
         },
 		{
             "name": "support.thread.lena",
