@@ -5,6 +5,7 @@
   "publisher": "robotsvision",
   "icon": "images/icon.png",
   "version": "0.0.1",
+  "repository": "https://github.com/robotsvision/lena-lang-vscode",
   "engines": {
     "vscode": "^1.86.0"
   },
